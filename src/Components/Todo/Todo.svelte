@@ -20,12 +20,12 @@
     const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
 
-    taskList = [...taskList, {
+    taskList = [{
       id: nanoid(),
       done: false,
       task: taskName,
       date: d.toLocaleDateString(undefined, dateOptions)
-    }];
+    }, ...taskList];
 
     dates = [...new Set(taskList.map(e => e.date))];
     updateStorage();
